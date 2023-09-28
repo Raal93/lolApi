@@ -8,11 +8,9 @@ import ThemeWrapper from "./components/theme/ThemeWrapper";
 const App = () => {
 
   return (
-    <div className="App">
       <ThemeWrapper>
         <HomePage />
       </ThemeWrapper>
-    </div>
   );
 }
 

@@ -6,4 +6,7 @@ background-color: darkgreen;
 width: 100%;
 text-align: center;
 color: white;
+:hover {
+  background-color: black;
+}
 `
