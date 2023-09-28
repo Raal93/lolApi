@@ -1,16 +1,23 @@
-// import { StyledButton } from "./App.styles"
-// import React, { useState } from 'react';
-import HomePage from "./pages/HomePage/HomePage"
-import PageWrapper from "./components/organisms/PageWrapper/PageWrapper"
-import { GlobalStyles } from "./components/theme/GlobalStyles";
+import HomePage from "./pages/HomePage/HomePage";
+import AboutSitePage from "./pages/AboutSitePage/AboutSitePage";
+import LolItemListPage from "./pages/LolItemListPage/LolItemListPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import ThemeWrapper from "./components/theme/ThemeWrapper";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
 
   return (
+    <Router>
       <ThemeWrapper>
-        <HomePage />
+        <Routes>
+          <Route index path="/" element={<HomePage />} />
+          <Route index path="/aboutsite" element={<AboutSitePage />} />
+          <Route index path="/itemlist" element={<LolItemListPage />} />
+          <Route index path="/*" element={<ErrorPage />} />
+        </Routes>
       </ThemeWrapper>
+    </Router>
   );
 }
 
