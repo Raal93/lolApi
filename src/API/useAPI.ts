@@ -13,9 +13,10 @@ export const useAPI = () => {
   
   const getAllProducts = async () => {
     try {
-      const response = await fetch('https://dummyjson.com/products');
-      const data = await response.json();
-      setAllProducts(data.products);
+      const response = await axios.get('https://dummyjson.com/products');
+      const allProducts = response.data.products;
+      // console.log(allProducts);
+      setAllProducts(allProducts);
     }
     catch (error) {
       return console.log(error);
