@@ -1,5 +1,7 @@
 import { useAPI } from "../../API/useAPI";
 import { useEffect } from "react";
+import ProductCard from "../../components/molecules/ProductCard/ProductCardComponent";
+import { PageContainer, ProductsCardsContainer } from "./LolItemListPage.styles";
 
 const LolItemListPage = () => {
 
@@ -11,21 +13,21 @@ const LolItemListPage = () => {
 
 
   return (
-    <div>
+    <PageContainer>
       <h1>Lista przedmiotów</h1>
-      <div>
+      <ProductsCardsContainer>
         {
           allProducts == undefined ? (
             <div>allProduct is undefined</div>
           ) : (
             allProducts.map((product) => {
-            return <p key={product.id}>{product.title}</p>;
-          } )
-          )
-        }
-      </div>
-    </div>
-  );
-}
+              return <ProductCard key={product.id} product={product} />;
+                } )
+                )
+              }
+      </ProductsCardsContainer>
+    </PageContainer>
+        );
+      }
 
-export default LolItemListPage;
+      export default LolItemListPage;

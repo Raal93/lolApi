@@ -1,11 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
+import { productBody } from "../models/models";
 
-interface productBody {
-  id: number,
-  title: string,
-  description: string
-}
+
 
 export const useAPI = () => {
   const [allProducts, setAllProducts] = useState<productBody[]>();
@@ -15,7 +12,7 @@ export const useAPI = () => {
     try {
       const response = await axios.get('https://dummyjson.com/products');
       const allProducts = response.data.products;
-      // console.log(allProducts);
+      console.log(allProducts);
       setAllProducts(allProducts);
     }
     catch (error) {
