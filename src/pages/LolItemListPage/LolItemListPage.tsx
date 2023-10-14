@@ -1,7 +1,7 @@
 import { useAPI } from "../../API/useAPI";
 import { useEffect } from "react";
 import ProductCard from "../../components/molecules/ProductCard/ProductCardComponent";
-import { PageContainer, ProductsCardsContainer } from "./LolItemListPage.styles";
+import { PageContainer, ProductsCardsContainer, ProductsPageHeader } from "./LolItemListPage.styles";
 
 const LolItemListPage = () => {
 
@@ -14,7 +14,7 @@ const LolItemListPage = () => {
 
   return (
     <PageContainer>
-      <h1>Lista przedmiotów</h1>
+      <ProductsPageHeader>See our products</ProductsPageHeader>
       <ProductsCardsContainer>
         {
           allProducts == undefined ? (
