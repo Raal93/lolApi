@@ -5,9 +5,9 @@ const MenuComponent = () => {
     <Menu>
       <MenuHamburger>Hamburger</MenuHamburger>
       <MenuList>
-        <MenuItem><StyledLink to="/">home</StyledLink></MenuItem>
-        <MenuItem><StyledLink to="/itemlist">Przedmioty</StyledLink></MenuItem>
-        <MenuItem><StyledLink to="/aboutsite">O stronie</StyledLink></MenuItem>
+        <MenuItem><StyledLink to="/">Home</StyledLink></MenuItem>
+        <MenuItem><StyledLink to="/itemlist">Kupuj</StyledLink></MenuItem>
+        <MenuItem><StyledLink to="/aboutsite">Kontakt</StyledLink></MenuItem>
       </MenuList>
     </Menu>
   )

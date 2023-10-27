@@ -3,8 +3,8 @@ import { HeroContainer, HeroH1, HeroParagraph } from "./HeroContainerComponent.s
 const HeroContainerComponent = () => {
   return (
     <HeroContainer>
-        <HeroH1>Liga legend jest wspaniała</HeroH1>
-        <HeroParagraph>Przejrzyj swoje ulubione przedmioty i bohaterów</HeroParagraph>
+        <HeroH1>Nasz sklep jest wspaniały!</HeroH1>
+        <HeroParagraph>Przeglądaj nasze przedmioty i kupuj je!</HeroParagraph>
       </HeroContainer>
   )
 }
