@@ -1,16 +1,18 @@
 import { productBody } from "../../../models/models";
-import { ProductCardWrapper } from "./ProductCardComponent.styles";
+import { ProductCardWrapper, ProductImage, ProductImageWrapper } from "./ProductCardComponent.styles";
 
 interface Props {
   product: productBody
 }
 
-const productCard = ({ product:{ title, description, price} } : Props) => {
+const productCardComponent = ({ product:{ title, description, price, images} } : Props) => {
   
 
   return (
     <ProductCardWrapper>
-      <div><img /></div>
+      <ProductImageWrapper>
+        <ProductImage src={images[0]} />
+      </ProductImageWrapper>
       <div>
         <h4>{title}</h4>
         <p>{description}</p>
@@ -20,4 +22,4 @@ const productCard = ({ product:{ title, description, price} } : Props) => {
   )
 }
 
-export default productCard;
+export default productCardComponent;

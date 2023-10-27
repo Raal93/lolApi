@@ -1,6 +1,6 @@
 import { useAPI } from "../../API/useAPI";
 import { useEffect } from "react";
-import ProductCard from "../../components/molecules/ProductCard/ProductCardComponent";
+import ProductCardComponent from "../../components/molecules/ProductCard/ProductCardComponent";
 import { PageContainer, ProductsCardsContainer, ProductsPageHeader } from "./LolItemListPage.styles";
 
 const LolItemListPage = () => {
@@ -21,7 +21,7 @@ const LolItemListPage = () => {
             <div>allProduct is undefined</div>
           ) : (
             allProducts.map((product) => {
-              return <ProductCard key={product.id} product={product} />;
+              return <ProductCardComponent key={product.id} product={product} />;
                 } )
                 )
               }

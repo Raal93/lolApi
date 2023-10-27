@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const PageContainer = styled.main`
-  margin: 25px;
+  padding: 25px;
+  background-color: lightgray;
 `
 
 export const ProductsCardsContainer = styled.section`
