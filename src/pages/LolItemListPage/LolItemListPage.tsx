@@ -5,7 +5,7 @@ import { PageContainer, ProductsCardsContainer, ProductsPageHeader } from "./Lol
 
 const LolItemListPage = () => {
 
-  const { getAllProducts, allProducts } = useAPI(); // wywołanie funkcji useApi ktora zwraca podane rzeczy // 
+  const { getAllProducts, allProducts } = useAPI(); // wywołanie funkcji useApi ktora zwraca podane rzeczy //
 
   useEffect(() => {
     getAllProducts()
@@ -17,13 +17,13 @@ const LolItemListPage = () => {
       <ProductsPageHeader>See our products</ProductsPageHeader>
       <ProductsCardsContainer>
         {
-          allProducts == undefined ? (
-            <div>allProduct is undefined</div>
-          ) : (
-            allProducts.map((product) => {
+          // allProducts == undefined ? (
+          //   <div>allProduct is undefined</div>
+          // ) : (
+            allProducts?.map((product) => {
               return <ProductCardComponent key={product.id} product={product} />;
                 } )
-                )
+                // )
               }
       </ProductsCardsContainer>
     </PageContainer>

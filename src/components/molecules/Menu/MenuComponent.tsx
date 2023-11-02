@@ -7,7 +7,7 @@ const MenuComponent = () => {
       <MenuList>
         <MenuItem><StyledLink to="/">Home</StyledLink></MenuItem>
         <MenuItem><StyledLink to="/itemlist">Kupuj</StyledLink></MenuItem>
-        <MenuItem><StyledLink to="/aboutsite">Kontakt</StyledLink></MenuItem>
+        <MenuItem><StyledLink to="/aboutsite">About</StyledLink></MenuItem>
       </MenuList>
     </Menu>
   )

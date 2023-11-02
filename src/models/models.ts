@@ -12,6 +12,12 @@ export interface productBody {
   title: string,
 }
 
+export interface userBody {
+  id: number,
+  age: number,
+  username: string,
+}
+
 export interface productImagesBody {
   0: string,
   1: string,
