@@ -14,8 +14,8 @@ const App = () => {
         <Routes>
           <Route index path="/" element={<HomePage />} />
           <Route index path="/aboutsite" element={<AboutSitePage />} />
-          <Route index path="/itemlist" element={<LolItemListPage />} />
-          <Route index path="/product/:id" element={<ProductDetailsPage />} />
+          <Route index path="/products" element={<LolItemListPage />} />
+          <Route index path="/products/:id" element={<ProductDetailsPage />} />
           <Route index path="/*" element={<ErrorPage />} />
         </Routes>
       </ThemeWrapper>

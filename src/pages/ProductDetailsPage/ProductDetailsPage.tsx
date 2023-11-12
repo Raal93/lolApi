@@ -1,20 +1,15 @@
-import React from 'react';
-import { RouteComponentProps } from 'react-router';
+import { useLocation } from "react-router-dom";
+import ProductDetailsCardComponent from "../../components/molecules/ProductDetailsCardComponent/ProductDetailsCardComponent";
 
-interface ProductDetailsProps extends RouteComponentProps<{ id: string }> {
-  // Dodaj inne typy props, jeśli są potrzebne
-}
+const ProductDetailsPage = () => {
 
-const ProductDetailsPage: React.FC<ProductDetailsProps> = (props) => {
-  const productId = props.match.params.id;
-
-  // Teraz możesz użyć productId do ładowania danych produktu itp.
+  const { state } = useLocation();
+  const { product } = state;
 
   return (
-    <div>
-      <h2>Details for Product {productId}</h2>
-      {/* Reszta zawartości */}
-    </div>
+    <>
+      <ProductDetailsCardComponent key={product.title} product={product} />
+    </>
   );
 };
 

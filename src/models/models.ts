@@ -19,6 +19,9 @@ export interface userBody {
 }
 
 export interface productImagesBody {
+  map(arg0: (imgLink: string) => JSX.Element): import("react").ReactNode;
   0: string,
   1: string,
+  2: string,
+  3: string
 }

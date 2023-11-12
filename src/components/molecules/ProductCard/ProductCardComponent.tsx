@@ -1,20 +1,26 @@
 import { productBody } from "../../../models/models";
 import { ProductCardWrapper, ProductImage, ProductImageWrapper } from "./ProductCardComponent.styles";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   product: productBody
 }
 
-const productCardComponent = ({ product:{ title, description, price, images} } : Props) => {
+const productCardComponent = ({ product:{brand, category, description, discountPercentage, id, images, price, rating, stock, thumbnail, title} } : Props) => {
   
+  const navigate = useNavigate();
+
+  const productDetails = () => {
+    navigate(`/products/${title}`, {state: {product: {brand, category, description, discountPercentage, id, images, price, rating, stock, thumbnail, title}}})
+  }
 
   return (
     <ProductCardWrapper>
       <ProductImageWrapper>
-        <ProductImage src={images[0]} />
+        <ProductImage src={thumbnail} />
       </ProductImageWrapper>
       <div>
-        <h4>{title}</h4>
+        <h4 onClick={productDetails}>{title}</h4>
         <p>{description}</p>
         <p>Cena: {price}$</p>
       </div>
