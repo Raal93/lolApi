@@ -103,12 +103,12 @@ export const OffPrice = styled.span`
   &::after {
     content: "";
     position: absolute;
-    bottom: 40%;
+    bottom: 50%;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 2px;
     background-color: red;
-    opacity: 40%;
+    opacity: 80%;
   }
 `
 
@@ -149,6 +149,7 @@ export const BuyBtn = styled.button`
     text-decoration: none;
     height: 3rem;
     padding: 0 calc(1rem - 1px);
+    margin-top: 1rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
@@ -164,11 +165,11 @@ export const BuyBtn = styled.button`
 export const SafetyInfoBlock = styled.div`
 `
 
-export const SafetyInfoList = styled.ul`
+export const InfoList = styled.ul`
   list-style-type: none;
 `
 
-export const SafetyInfoElement = styled.li`
+export const InfoElement = styled.li`
   padding-left: 1.5rem;
   margin-bottom: 0.25rem;
   text-align: left;
@@ -181,7 +182,21 @@ export const SafetyInfoElement = styled.li`
     left: 0;
   }
 `
-export const SafetyInfoImportant = styled.span`
+export const InfoImportant = styled.span`
   font-weight: 700;
   color: green;  
+`
+
+export const DeliveryInfoBlock = styled.div`
+`
+
+export const Bold = styled.span`
+  font-weight: 700;
+`
+
+export const ViewDeliveryOptions = styled.div`
+`
+
+export const CheckOtherProducts = styled.div`
+  padding: 30px 0;
 `
