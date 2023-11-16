@@ -7,14 +7,14 @@ interface Props {
 
 const ProductDetailsCardComponent = ({ product:{brand, category, description, discountPercentage, id, images, price, rating, stock, thumbnail, title} } : Props) => {
   
-  const calcOffPromoPrice = () => {
-    return (price / (100 - discountPercentage) * 100).toFixed(2);
+  const calcPriceBeforePromo = () => {
+    return (price / (100 - discountPercentage) * 100).toFixed(2);  // ulepszyć o samoopisywalne nazwy zmiennych + usunac sztywne numery
   }
   
   return <Container>
               <HeaderWrap>
                 <Header>
-                  {title} - {description}
+                  {title} - {description}{console.log(images)}
                 </Header>
                 <AdditionalInfo>
                   <Brand>Brand: {brand}</Brand>
@@ -22,23 +22,23 @@ const ProductDetailsCardComponent = ({ product:{brand, category, description, di
                 </AdditionalInfo>
               </HeaderWrap>
               <ContentWrap>
-                <Gallery>
+                <Gallery> {/* molekuła */}
                   <BigImageContainer>
                     <BigImage src={thumbnail}></BigImage>
                   </BigImageContainer>
                   <SmallImagesWrapper>
-                    {images.map( (imgLink: string) => {
-                      return <SmallImageContainer><SmallImage src={imgLink}></SmallImage></SmallImageContainer>
+                    {images.map((imgLink, id) => {
+                      return <SmallImageContainer key={id}><SmallImage src={imgLink}></SmallImage></SmallImageContainer>
                     })}
                   </SmallImagesWrapper>
                 </Gallery>
-                <CartInterface>
+                <CartInterface> {/* molekuła */}
                     <PromoPrice>{price}$</PromoPrice>
-                    <OffPromoPrice>Most shown price: <OffPrice>{calcOffPromoPrice()}$</OffPrice></OffPromoPrice>
+                    <OffPromoPrice>Most shown price: <OffPrice>{calcPriceBeforePromo()}$</OffPrice></OffPromoPrice>
                     <SaveInfo>You save: {discountPercentage}%!</SaveInfo>
-                    <Stock>{stock>0 ? (<InStock>In Stock!</InStock>): <SoldOut>Sold Out!</SoldOut>}</Stock>
+                    <Stock>{stock > 0 ? (<InStock>In Stock!</InStock>) : <SoldOut>Sold Out!</SoldOut>}</Stock>{/* *dodac opisujaca zmienna */}
                     <DeliverInfo>Ordered before 11:59 PM, delivered tomorrow!</DeliverInfo>
-                    <BasketBtnRow><BuyBtn>ADD TO SHOPPING CART!</BuyBtn></BasketBtnRow>
+                    <BasketBtnRow><BuyBtn>ADD TO SHOPPING CART!</BuyBtn></BasketBtnRow>{/* atom */}
                     <SafetyInfoBlock>
                       <InfoList>
                         <InfoElement>Order and pay via Superpupershop.xdd</InfoElement>

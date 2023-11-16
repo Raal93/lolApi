@@ -7,7 +7,7 @@ const ProductDetailsPage = () => {
   const { state } = useLocation();
   const { product } = state;
 
-  return <ProductDetailsCardComponent key={product.title} product={product} />;
+  return <ProductDetailsCardComponent product={product} />;
 };
 
 export default ProductDetailsPage;
