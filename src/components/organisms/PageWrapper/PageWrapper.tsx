@@ -1,6 +1,6 @@
 import { Wrapper, ContentWrapper, FooterWrapper } from "./PageWrapper.styles";
 import HeaderComponent from "../HeaderComponent/HeaderComponent";
-import FooterComponent from "../FooterComponent/FooterComponent";
+import FooterComponent from "../Footer/FooterComponent";
 
 const PageWrapper = ({children}: any) => {
   return (

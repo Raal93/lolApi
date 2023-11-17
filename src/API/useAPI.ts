@@ -9,7 +9,7 @@ export const useAPI = () => {
 
   const getAllProducts = async () => {
     try {
-      const response = await axios.get('https://dummyjson.com/products');
+      const response = await axios.get('https://dummyjson.com/products?limit=100');
       // console.log(allProducts);
       setAllProducts(response.data.products);
     } catch (error) { return console.log(error) }
