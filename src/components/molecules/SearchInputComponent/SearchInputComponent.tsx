@@ -1,9 +1,13 @@
 import { Input, Container, SearchForm } from "./SearchInputComponent.styles";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { useAPI } from "../../../API/useAPI";
+import { useGlobalContext } from "../../../GlobalContext/GlobalContext";
+
+
 
 const SearchInputComponent = () => {
-  const [inputText, setInputText] = useState<any>();
+  const { globalInputText, setGlobalInputText } = useGlobalContext();
+  // const [inputText, setInputText] = useState<any>();
   const { getAllProducts, allProducts } = useAPI();
 
   useEffect(() => { getAllProducts() }, []);
@@ -13,10 +17,10 @@ const SearchInputComponent = () => {
 
     const filteredProducts = allProducts?.filter((product) => {
       return (
-        product.title.toLowerCase().includes(inputText) || 
-        product.description.toLowerCase().includes(inputText) ||
-        product.brand.toLowerCase().includes(inputText) ||
-        product.category.toLowerCase().includes(inputText)
+        product.title.toLowerCase().includes(globalInputText) || 
+        product.description.toLowerCase().includes(globalInputText) ||
+        product.brand.toLowerCase().includes(globalInputText) ||
+        product.category.toLowerCase().includes(globalInputText)
       )
     })
 
@@ -24,13 +28,13 @@ const SearchInputComponent = () => {
   }
 
   const handleSearchChange = (e: any) => {
-    setInputText(e.target.value);
+    setGlobalInputText(e.target.value);
   }
 
   return (
     <Container>
       <SearchForm onSubmit={(e) => handleSubmit(e)}>
-        <Input type="text" value={inputText} onChange={(e)=>handleSearchChange(e)} />
+        <Input type="text" value={globalInputText} onChange={(e)=>handleSearchChange(e)} />
       </SearchForm>
     </Container>
   )
