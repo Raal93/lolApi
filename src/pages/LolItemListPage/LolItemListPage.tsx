@@ -1,21 +1,13 @@
 import { useAPI } from "../../API/useAPI";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import ProductCardComponent from "../../components/molecules/ProductCard/ProductCardComponent";
 import { PageContainer, ProductsCardsContainer, ProductsPageHeader } from "./LolItemListPage.styles";
-// import SearchInputComponent from "../../components/molecules/SearchInputComponent/SearchInputComponent";
 import { useGlobalContext } from "../../GlobalContext/GlobalContext";
-
 
 const LolItemListPage = () => {
   const { globalInputText } = useGlobalContext();
-
   const { getAllProducts, allProducts } = useAPI();
-  // const { inputext } = useContext<any>(SearchInputComponent);
-
-  useEffect(() => {
-    getAllProducts();
-  }, [])
-
+  useEffect(() => { getAllProducts(); }, []);
 
   return (
     <PageContainer>
@@ -23,15 +15,19 @@ const LolItemListPage = () => {
       <ProductsCardsContainer>
         {
           allProducts?.filter((product) => {
-      return (
-        product.title.toLowerCase().includes(globalInputText) || 
-        product.description.toLowerCase().includes(globalInputText) ||
-        product.brand.toLowerCase().includes(globalInputText) ||
-        product.category.toLowerCase().includes(globalInputText)
-      )
-    }).map((product) => {
+            if (!globalInputText) return true;
+            const searchedText = globalInputText.toLowerCase();
+
+            const isSearchResultPositive =
+              product.title.toLowerCase().includes(searchedText) ||
+              product.description.toLowerCase().includes(searchedText) ||
+              product.brand.toLowerCase().includes(searchedText) ||
+              product.category.toLowerCase().includes(searchedText);
+            
+            return isSearchResultPositive;
+          }).map((product) => {
             return <ProductCardComponent key={product.id} product={product} />;
-          } )
+          })
         }
       </ProductsCardsContainer>
     </PageContainer>

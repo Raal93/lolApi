@@ -1,40 +1,29 @@
 import { Input, Container, SearchForm } from "./SearchInputComponent.styles";
-import { useState, useEffect, createContext, useContext } from "react";
-import { useAPI } from "../../../API/useAPI";
+import { useState } from "react";
 import { useGlobalContext } from "../../../GlobalContext/GlobalContext";
-
+import { useNavigate } from "react-router-dom";
 
 
 const SearchInputComponent = () => {
   const { globalInputText, setGlobalInputText } = useGlobalContext();
-  // const [inputText, setInputText] = useState<any>();
-  const { getAllProducts, allProducts } = useAPI();
-
-  useEffect(() => { getAllProducts() }, []);
+  const [inputText, setInputText] = useState<any>();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-
-    const filteredProducts = allProducts?.filter((product) => {
-      return (
-        product.title.toLowerCase().includes(globalInputText) || 
-        product.description.toLowerCase().includes(globalInputText) ||
-        product.brand.toLowerCase().includes(globalInputText) ||
-        product.category.toLowerCase().includes(globalInputText)
-      )
-    })
-
-    console.log(filteredProducts);
+    setGlobalInputText(inputText);
+    navigate(`/products`, {})
   }
 
   const handleSearchChange = (e: any) => {
-    setGlobalInputText(e.target.value);
+    setInputText(e.target.value);
+    if(e.target.value === "") setGlobalInputText(inputText);
   }
 
   return (
     <Container>
       <SearchForm onSubmit={(e) => handleSubmit(e)}>
-        <Input type="text" value={globalInputText} onChange={(e)=>handleSearchChange(e)} />
+        <Input type="text" value={inputText} onChange={(e)=>handleSearchChange(e)} />
       </SearchForm>
     </Container>
   )
