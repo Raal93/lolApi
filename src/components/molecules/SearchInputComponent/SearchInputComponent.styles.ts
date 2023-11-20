@@ -15,6 +15,7 @@ export const Input = styled.input`
   outline: none;
   width: 300px;
   font-size: 16px;
+  background-color: rgb(253,245,150);
 `
 
 export const SubmitBtn = styled.button`

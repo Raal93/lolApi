@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const AboutSection = styled.section`
 padding: 2rem;
-background-color: antiquewhite;
 `
 export const AboutSectionH2 = styled.h2`
 font-size: 2rem;

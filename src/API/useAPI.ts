@@ -25,7 +25,7 @@ export const useAPI = () => {
 
   const getExampleProducts = async () => {
     try {
-      const response = await axios.get('https://dummyjson.com/products?limit=5');
+      const response = await axios.get('https://dummyjson.com/products?limit=6');
       setExampleProducts(response.data.products);
     } catch (error) { return console.log(error) }
   }

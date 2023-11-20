@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  text-align: center;
-  background-color: aquamarine;
-  padding: 15px 0;
+export const PageContainer = styled.main`
+  padding: 25px;
+`
+
+export const ProductsCardsContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `

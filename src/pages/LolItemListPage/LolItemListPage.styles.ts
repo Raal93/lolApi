@@ -10,8 +10,7 @@ export const ProductsCardsContainer = styled.section`
   /* zrobić gridem (lub połączyć): 3 kolumny/2 /1, */
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-around;
 `
 
 export const ProductsPageHeader = styled.h2`
