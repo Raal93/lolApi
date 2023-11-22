@@ -3,25 +3,36 @@ import { useEffect } from "react";
 
 const AboutSitePage = () => {
 
-  const { getAllUsers, allUsers } = useAPI();
+  const { getProducts, products } = useAPI();
 
   useEffect(() => {
-    getAllUsers()
+    getProducts(100);
   }, [])
 
-  console.log(allUsers);
-  return (
-    <div>
-      {
-        allUsers?.map(user => {
+  const createAllCategories = () => {
+    const allCategories: string[] = products.map(product => {
+      return product.category;
+    });
+
+    return [...new Set(allCategories)];
+  }
+
+  const displayAllCategories = () => {
+    const allCategories = createAllCategories();
+
+    return allCategories.map((category, id) => {
           return (
-            <div key={user.id}>
-              <span>id: {user.id}</span>
-              <span>age {user.age}</span>
-              <span>user name: {user.username}</span>
+            <div key={id}>
+              <span>{id + 1}: {category}</span>
             </div>
           )
         })
+  }
+
+  return (
+    <div>
+      {
+        displayAllCategories()
       }
     </div>
   );

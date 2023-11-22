@@ -4,14 +4,16 @@ import { useEffect } from "react";
 import ProductCardComponent from "../../molecules/ProductCard/ProductCardComponent";
 
 const ProductsHomeComponent = () => {
-  const { getExampleProducts, exampleProducts } = useAPI();
-  useEffect(() => { getExampleProducts(), [] });
+  const numberOfProducts = 6;
+
+  const { getProducts, products } = useAPI();
+  useEffect(() => { getProducts(numberOfProducts), [] });
 
 
   return (
     <PageContainer>
       <ProductsCardsContainer>
-        {exampleProducts?.map((product) => {
+        {products.map((product) => {
           return <ProductCardComponent key={product.id} product={product} />
         })}
       </ProductsCardsContainer>

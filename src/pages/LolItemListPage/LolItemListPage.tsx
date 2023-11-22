@@ -6,15 +6,15 @@ import { useGlobalContext } from "../../GlobalContext/GlobalContext";
 
 const LolItemListPage = () => {
   const { globalInputText } = useGlobalContext();
-  const { getAllProducts, allProducts } = useAPI();
-  useEffect(() => { getAllProducts(); }, []);
+  const { getProducts, products } = useAPI();
+  useEffect(() => { getProducts(100); }, []);
 
   return (
     <PageContainer>
       <ProductsPageHeader>See our products</ProductsPageHeader>
       <ProductsCardsContainer>
         {
-          allProducts?.filter((product) => {
+          products.filter((product) => {
             if (!globalInputText) return true;
             const searchedText = globalInputText.toLowerCase();
 
