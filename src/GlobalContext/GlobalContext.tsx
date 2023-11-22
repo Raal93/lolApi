@@ -1,15 +1,22 @@
-import React, { createContext, useContext, useState } from 'react';
-
-
+import { ReactNode, createContext, useContext, useState } from 'react';
+interface PropsChildren {
+  children: ReactNode;
+}
 interface GlobalContextProps {
-  globalInputText: any;
-  setGlobalInputText: React.Dispatch<React.SetStateAction<any>>;
+  globalInputText:  string;
+  setGlobalInputText: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const GlobalContext = createContext<GlobalContextProps | undefined>(undefined);
+const initialGlobalContext: GlobalContextProps = {
+  globalInputText: "",
+  setGlobalInputText: () => { }
+}
 
-export const GlobalProvider: React.FC = ({ children }) => {
-  const [globalInputText, setGlobalInputText] = useState<any>(undefined);
+const GlobalContext = createContext<GlobalContextProps>(initialGlobalContext);
+
+
+export const GlobalProvider = ({ children }: PropsChildren) => {
+  const [globalInputText, setGlobalInputText] = useState<string>("");
 
   return (
     <GlobalContext.Provider value={{ globalInputText, setGlobalInputText }}>

@@ -7,12 +7,12 @@ const PageWrapper = ({children}: any) => {
   return (
     <Wrapper>
       <GlobalProvider>
-      <HeaderComponent />
-      <ContentWrapper>
-        {children}
-      </ContentWrapper>
-      <FooterWrapper>
-        <FooterComponent />
+        <HeaderComponent />
+        <ContentWrapper>
+          {children}
+        </ContentWrapper>
+        <FooterWrapper>
+          <FooterComponent />
         </FooterWrapper>
       </GlobalProvider>
     </Wrapper>
