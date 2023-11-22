@@ -6,7 +6,7 @@ const AboutSitePage = () => {
   const { getProducts, products } = useAPI();
 
   useEffect(() => {
-    getProducts(100);
+    getProducts();
   }, [])
 
   const createAllCategories = () => {

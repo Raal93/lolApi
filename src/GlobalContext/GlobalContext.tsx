@@ -3,23 +3,23 @@ interface PropsChildren {
   children: ReactNode;
 }
 interface GlobalContextProps {
-  globalInputText:  string;
-  setGlobalInputText: React.Dispatch<React.SetStateAction<string>>;
+  searchInputTextGlobal:  string;
+  setSearchInputTextGlobal: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const initialGlobalContext: GlobalContextProps = {
-  globalInputText: "",
-  setGlobalInputText: () => { }
+  searchInputTextGlobal: "",
+  setSearchInputTextGlobal: () => { }
 }
 
 const GlobalContext = createContext<GlobalContextProps>(initialGlobalContext);
 
 
 export const GlobalProvider = ({ children }: PropsChildren) => {
-  const [globalInputText, setGlobalInputText] = useState<string>("");
+  const [searchInputTextGlobal, setSearchInputTextGlobal] = useState<string>("");
 
   return (
-    <GlobalContext.Provider value={{ globalInputText, setGlobalInputText }}>
+    <GlobalContext.Provider value={{ searchInputTextGlobal, setSearchInputTextGlobal }}>
       {children}
     </GlobalContext.Provider>
   );

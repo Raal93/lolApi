@@ -2,30 +2,38 @@ import { Input, Container, SearchForm, SubmitBtn } from "./SearchInputComponent.
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useGlobalContext } from "../../../GlobalContext/GlobalContext";
 import { useNavigate } from "react-router-dom";
+import SearchHintComponent from "../SearchHintComponent/SearchHintComponent";
 
 
 const SearchInputComponent = () => {
-  const { setGlobalInputText } = useGlobalContext();
+  const { setSearchInputTextGlobal } = useGlobalContext();
   const [inputText, setInputText] = useState("");
+  const [isSearchHintShown, setIsSearchHintShown] = useState(false);
   const navigate = useNavigate();
 
-  const submitProductSearch = (e: FormEvent<HTMLFormElement>) => {
+  const executeProductSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setGlobalInputText(inputText);
+    setSearchInputTextGlobal(inputText);
     navigate(`/products`, {});
   }
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
-    if(e.target.value === "") setGlobalInputText("");
+    if (e.target.value === "") {
+      setSearchInputTextGlobal("");
+      setIsSearchHintShown(false);
+    } else {
+      setIsSearchHintShown(true);
+    }
   }
 
   return (
     <Container>
-      <SearchForm onSubmit={(e) => submitProductSearch(e)}>
+      <SearchForm onSubmit={(e) => executeProductSearch(e)}>
         <Input type="text" value={inputText} onChange={(e) => handleSearchChange(e)} />
         <SubmitBtn type="submit">Search</SubmitBtn>
       </SearchForm>
+      {isSearchHintShown && <SearchHintComponent searchInputText={inputText} />}
     </Container>
   )
 }

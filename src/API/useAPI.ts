@@ -18,12 +18,20 @@ export const useAPI = () => {
   }]);
   const [allUsers, setAllUsers] = useState<userBody[]>();
 
- const getProducts = async (numberOfProducts:number) => {
-    const getProductsLink = 'https://dummyjson.com/products?limit=' + numberOfProducts.toString();
+  async function getProducts(): Promise<void>;
+  async function getProducts(numberOfProducts: number): Promise<void>;
+
+  async function getProducts(arg?: number): Promise<void> {
+    const getProductsLink = arg
+      ? `https://dummyjson.com/products?limit=${arg}`
+      : 'https://dummyjson.com/products?limit=100';
+    
     try {
-      const response = await axios.get(getProductsLink);
-      setProducts(response.data.products);
-    } catch (error) { return console.log(error) }
+    const response = await axios.get(getProductsLink);
+    setProducts(response.data.products);
+  } catch (error) {
+    console.error(error);
+  }
   }
   
   const getAllUsers = async () => {
