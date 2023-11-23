@@ -7,7 +7,7 @@ import { useGlobalContext } from "../../GlobalContext/GlobalContext";
 const LolItemListPage = () => {
   const { searchInputTextGlobal } = useGlobalContext();
   const { getProducts, products } = useAPI();
-  useEffect(() => { getProducts(); }, []);
+  useEffect(() => { getProducts() }, []);
 
   return (
     <PageContainer>
