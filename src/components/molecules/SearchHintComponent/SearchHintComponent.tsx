@@ -1,6 +1,7 @@
-import { HintWrapper, SuggestionList, SuggestionListItem } from "./SearchHintComponent.styles"
+import { HintWrapper, SuggestionList } from "./SearchHintComponent.styles"
 import { useAPI } from "../../../API/useAPI";
 import { useEffect, useMemo } from "react";
+import SuggestionLIComponent from "../../atoms/SuggestionLIComponent/SuggestionLIComponent";
 interface Props { searchInputText: string }
 
 const SearchHintComponent = ({ searchInputText }: Props) => {
@@ -26,7 +27,7 @@ const SearchHintComponent = ({ searchInputText }: Props) => {
     const allWordList = createAllWordsList();
     const matchedWordsStartWith = allWordList.filter(word => word.startsWith(searchInputText));
     const reducedWordList = matchedWordsStartWith.slice(0, 10);
-  return reducedWordList.map(word => <SuggestionListItem key={word}>{word}</SuggestionListItem>);
+    return reducedWordList.map(word => <SuggestionLIComponent key={word} word={word}></SuggestionLIComponent>);
   }
   
   return (

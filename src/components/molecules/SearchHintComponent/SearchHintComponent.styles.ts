@@ -30,9 +30,3 @@ export const SuggestionList = styled.ul`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 `
-
-export const SuggestionListItem = styled.li`
-  /* background-color: transparent; */
-  /* border-radius: 20px; */
-  cursor: pointer;
-`
