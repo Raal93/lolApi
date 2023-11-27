@@ -21,14 +21,15 @@ export const useAPI = () => {
   async function getProducts(): Promise<void>;
   async function getProducts(numberOfProducts: number): Promise<void>;
 
-  async function getProducts(arg?: number): Promise<void> {
-    const getProductsLink = arg
-      ? `https://dummyjson.com/products?limit=${arg}`
-      : 'https://dummyjson.com/products?limit=100';
-    
+  async function getProducts(productsNumber?: number): Promise<void> {
+    const allProducts = 100;
+    const getProductsLink = productsNumber
+      ? `https://dummyjson.com/products?limit=${productsNumber}`
+      : `https://dummyjson.com/products?limit=${allProducts}`;
     try {
     const response = await axios.get(getProductsLink);
-    setProducts(response.data.products);
+      setProducts(response.data.products);
+      console.log("użyto getProducts()");
   } catch (error) {
     console.error(error);
   }

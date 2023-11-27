@@ -1,8 +1,9 @@
 import { Input, Container, SearchForm, SubmitBtn } from "./SearchInputComponent.styles";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useGlobalContext } from "../../../GlobalContext/GlobalContext";
 import { useNavigate } from "react-router-dom";
 import SearchHintComponent from "../SearchHintComponent/SearchHintComponent";
+import { useAPI } from "../../../API/useAPI";
 
 
 const SearchInputComponent = () => {
