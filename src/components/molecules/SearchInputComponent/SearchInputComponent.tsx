@@ -8,18 +8,18 @@ import { useAPI } from "../../../API/useAPI";
 
 const SearchInputComponent = () => {
   const { setSearchInputTextGlobal } = useGlobalContext();
-  const [inputText, setInputText] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [isSearchHintShown, setIsSearchHintShown] = useState(false);
   const navigate = useNavigate();
 
   const executeProductSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSearchInputTextGlobal(inputText);
+    setSearchInputTextGlobal(searchText);
     navigate(`/products`, {});
   }
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value);
+    setSearchText(e.target.value);
     if (e.target.value === "") {
       setSearchInputTextGlobal("");
       setIsSearchHintShown(false);
@@ -30,11 +30,22 @@ const SearchInputComponent = () => {
 
   return (
     <Container>
-      <SearchForm onSubmit={(e) => executeProductSearch(e)}>
-        <Input type="text" value={inputText} onChange={(e) => handleSearchChange(e)} />
+      <SearchForm
+        onSubmit={(e) => executeProductSearch(e)} 
+      >
+        <Input
+          type="text"
+          value={searchText}
+          onChange={(e) => handleSearchChange(e)}
+          onFocus={() => setIsSearchHintShown(true)}
+        />
         <SubmitBtn type="submit">Search</SubmitBtn>
       </SearchForm>
-      {isSearchHintShown && <SearchHintComponent searchInputText={inputText} />}
+      {isSearchHintShown && <SearchHintComponent
+        searchInputText={searchText}
+        setIsSearchHintShown={setIsSearchHintShown}
+        setSearchText={setSearchText}
+      />}
     </Container>
   )
 }

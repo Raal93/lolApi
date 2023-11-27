@@ -10,7 +10,7 @@ export const HintWrapper = styled.div`
 
 export const SuggestionList = styled.ul`
   margin: 0;
-  padding: 10px 20px;
+  padding: 10px 5px;
   list-style: none;
    position: relative;
   border-radius: 20px;

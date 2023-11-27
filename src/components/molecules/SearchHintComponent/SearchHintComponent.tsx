@@ -2,9 +2,13 @@ import { HintWrapper, SuggestionList } from "./SearchHintComponent.styles"
 import { useAPI } from "../../../API/useAPI";
 import { useEffect, useMemo } from "react";
 import SuggestionLIComponent from "../../atoms/SuggestionLIComponent/SuggestionLIComponent";
-interface Props { searchInputText: string }
+interface Props {
+  searchInputText: string
+  setIsSearchHintShown: (value: boolean) => void,
+  setSearchText: (value: string) => void
+}
 
-const SearchHintComponent = ({ searchInputText }: Props) => {
+const SearchHintComponent = ({ searchInputText, setIsSearchHintShown, setSearchText }: Props) => {
   const { getProducts, products } = useAPI();
   useEffect(() => { getProducts()}, []);
 
@@ -27,7 +31,12 @@ const SearchHintComponent = ({ searchInputText }: Props) => {
     const allWordList = createAllWordsList();
     const matchedWordsStartWith = allWordList.filter(word => word.startsWith(searchInputText));
     const reducedWordList = matchedWordsStartWith.slice(0, 10);
-    return reducedWordList.map(word => <SuggestionLIComponent key={word} word={word}></SuggestionLIComponent>);
+    return reducedWordList.map(word => <SuggestionLIComponent
+      key={word}
+      word={word}
+      setIsSearchHintShown={setIsSearchHintShown}
+      setSearchText={setSearchText}
+    ></SuggestionLIComponent>);
   }
   
   return (
