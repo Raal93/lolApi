@@ -3,11 +3,12 @@ import { useAPI } from "../../../API/useAPI";
 import { useEffect } from "react";
 import ProductCardComponent from "../../molecules/ProductCard/ProductCardComponent";
 
-const ProductsHomeComponent = () => {
-  const numberOfProducts = 6;
+const productsAtHomepage = 6;
+
+const ProductsHomeComponent = () => {1
 
   const { getProducts, products } = useAPI();
-  useEffect(() => { getProducts(numberOfProducts), [] });
+  useEffect(() => { getProducts(productsAtHomepage) }, []);
 
 
   return (
