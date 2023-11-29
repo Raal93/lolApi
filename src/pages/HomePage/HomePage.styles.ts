@@ -1,4 +1,3 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const PageContainer = styled.main`
-`
+export const PageContainer = styled.main``;

@@ -1,13 +1,13 @@
-import HomePage from "./pages/HomePage/HomePage";
-import AboutSitePage from "./pages/AboutSitePage/AboutSitePage";
-import LolItemListPage from "./pages/LolItemListPage/LolItemListPage";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import ThemeWrapper from "./components/theme/ThemeWrapper";
-import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import ThemeWrapper from './components/theme/ThemeWrapper';
+import AboutSitePage from './pages/AboutSitePage/AboutSitePage';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+import HomePage from './pages/HomePage/HomePage';
+import LolItemListPage from './pages/LolItemListPage/LolItemListPage';
+import ProductDetailsPage from './pages/ProductDetailsPage/ProductDetailsPage';
 
 const App = () => {
-
   return (
     <Router>
       <ThemeWrapper>
@@ -21,6 +21,6 @@ const App = () => {
       </ThemeWrapper>
     </Router>
   );
-}
+};
 
 export default App;

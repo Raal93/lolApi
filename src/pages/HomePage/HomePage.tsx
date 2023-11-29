@@ -1,16 +1,16 @@
-import { PageContainer } from "./HomePage.styles";
-import HeroContainerComponent from "../../components/organisms/HeroContainer/HeroContainerComponent"
-import AboutSectionComponent from "../../components/organisms/AboutSection/AboutSectionComponent";
-import ProductsHomeComponent from "../../components/organisms/ProductsHome/ProductsHomeComponent";
+import AboutSectionComponent from '../../components/organisms/AboutSection/AboutSectionComponent';
+import HeroContainerComponent from '../../components/organisms/HeroContainer/HeroContainerComponent';
+import ProductsHomeComponent from '../../components/organisms/ProductsHome/ProductsHomeComponent';
+import { PageContainer } from './HomePage.styles';
 
 const HomePage = () => {
   return (
     <PageContainer>
-      <HeroContainerComponent/>
+      <HeroContainerComponent />
       <AboutSectionComponent />
-      <ProductsHomeComponent/>
-   </PageContainer>
-  )
-}
+      <ProductsHomeComponent />
+    </PageContainer>
+  );
+};
 
 export default HomePage;

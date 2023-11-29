@@ -1,22 +1,21 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 interface PropsChildren {
   children: ReactNode;
 }
 interface GlobalContextProps {
-  searchInputTextGlobal:  string;
+  searchInputTextGlobal: string;
   setSearchInputTextGlobal: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const initialGlobalContext: GlobalContextProps = {
-  searchInputTextGlobal: "",
-  setSearchInputTextGlobal: () => { }
-}
+  searchInputTextGlobal: '',
+  setSearchInputTextGlobal: () => {},
+};
 
 const GlobalContext = createContext<GlobalContextProps>(initialGlobalContext);
 
-
 export const GlobalProvider = ({ children }: PropsChildren) => {
-  const [searchInputTextGlobal, setSearchInputTextGlobal] = useState<string>("");
+  const [searchInputTextGlobal, setSearchInputTextGlobal] = useState<string>('');
 
   return (
     <GlobalContext.Provider value={{ searchInputTextGlobal, setSearchInputTextGlobal }}>

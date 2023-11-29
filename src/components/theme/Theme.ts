@@ -1,4 +1,4 @@
 export const theme = {
   dark: 'green',
-  light: 'blue'
-}
+  light: 'blue',
+};

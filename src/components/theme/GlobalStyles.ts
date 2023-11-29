@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
@@ -19,4 +19,4 @@ export const GlobalStyles = createGlobalStyle`
       rgba(253,245,80,0.6376569978483431) 97%
     );
   }
-`
+`;

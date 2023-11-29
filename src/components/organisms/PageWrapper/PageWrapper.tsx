@@ -1,22 +1,18 @@
-import { Wrapper, ContentWrapper, FooterWrapper } from "./PageWrapper.styles";
-import HeaderComponent from "../HeaderComponent/HeaderComponent";
-import FooterComponent from "../Footer/FooterComponent";
-import { GlobalProvider } from "../../../GlobalContext/GlobalContext";
+import { GlobalProvider } from '../../../GlobalContext/GlobalContext';
+import FooterComponent from '../Footer/FooterComponent';
+import HeaderComponent from '../HeaderComponent/HeaderComponent';
+import { ContentWrapper, FooterWrapper, Wrapper } from './PageWrapper.styles';
 
-const PageWrapper = ({children}: any) => {
-  return (
-    <Wrapper>
-      <GlobalProvider>
-        <HeaderComponent />
-        <ContentWrapper>
-          {children}
-        </ContentWrapper>
-        <FooterWrapper>
-          <FooterComponent />
-        </FooterWrapper>
-      </GlobalProvider>
-    </Wrapper>
-  )
-}
+const PageWrapper = ({ children }: any) => (
+  <Wrapper>
+    <GlobalProvider>
+      <HeaderComponent />
+      <ContentWrapper>{children}</ContentWrapper>
+      <FooterWrapper>
+        <FooterComponent />
+      </FooterWrapper>
+    </GlobalProvider>
+  </Wrapper>
+);
 
 export default PageWrapper;

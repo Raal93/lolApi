@@ -1,10 +1,11 @@
-import { SuggestionLI } from "./SuggestionLIComponent.styles"
-import { useNavigate } from "react-router-dom"
-import { useGlobalContext } from "../../../GlobalContext/GlobalContext"
+import { useNavigate } from 'react-router-dom';
+
+import { useGlobalContext } from '../../../GlobalContext/GlobalContext';
+import { SuggestionLI } from './SuggestionLIComponent.styles';
 interface Props {
-  word: string,
-  setIsSearchHintShown: (value: boolean) => void,
-  setSearchText: (value: string) => void
+  word: string;
+  setIsSearchHintShown: (value: boolean) => void;
+  setSearchText: (value: string) => void;
 }
 
 const SuggestionLIComponent = ({ word, setIsSearchHintShown, setSearchText }: Props) => {
@@ -16,9 +17,9 @@ const SuggestionLIComponent = ({ word, setIsSearchHintShown, setSearchText }: Pr
     setIsSearchHintShown(false);
     setSearchText(word);
     navigate(`/products`, {});
-}
+  };
 
-  return <SuggestionLI onClick={navigateToSearchResults}> { word } </SuggestionLI>
-}
+  return <SuggestionLI onClick={navigateToSearchResults}> {word} </SuggestionLI>;
+};
 
 export default SuggestionLIComponent;

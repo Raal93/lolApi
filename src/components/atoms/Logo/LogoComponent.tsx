@@ -1,8 +1,6 @@
-import { Logo } from "./LogoComponent.styles";
+import { Logo } from './LogoComponent.styles';
 const LogoComponent = () => {
-  return (
-    <Logo>Logo</Logo>
-  )
-}
+  return <Logo>Logo</Logo>;
+};
 
 export default LogoComponent;

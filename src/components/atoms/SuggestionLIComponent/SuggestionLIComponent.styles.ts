@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SuggestionLI = styled.li`
   cursor: pointer;
@@ -7,6 +7,6 @@ export const SuggestionLI = styled.li`
   border-radius: 20px;
 
   &:hover {
-    background-color: rgb(0, 156, 0)
+    background-color: rgb(0, 156, 0);
   }
-`
+`;
