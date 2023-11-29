@@ -9,7 +9,9 @@ interface GlobalContextProps {
 
 const initialGlobalContext: GlobalContextProps = {
   searchInputTextGlobal: '',
-  setSearchInputTextGlobal: () => {},
+  setSearchInputTextGlobal: () => {
+    // Purposely empty function because we don't need anything extra at the start.
+  },
 };
 
 const GlobalContext = createContext<GlobalContextProps>(initialGlobalContext);

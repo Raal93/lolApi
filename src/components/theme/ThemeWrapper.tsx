@@ -1,10 +1,15 @@
+import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import PageWrapper from '../organisms/PageWrapper/PageWrapper';
 import { GlobalStyles } from './GlobalStyles';
 import { theme } from './Theme';
 
-const ThemeWrapper = ({ children }: any) => {
+interface PropsChildren {
+  children: ReactNode;
+}
+
+const ThemeWrapper = ({ children }: PropsChildren) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />

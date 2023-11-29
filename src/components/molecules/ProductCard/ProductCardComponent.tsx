@@ -48,15 +48,24 @@ const productCardComponent = ({
     });
   };
 
+  const handleEnterKeyPress = (event: { key: string }) => {
+    event.key === 'Enter' && productDetails();
+  };
+
   return (
     <ProductCardWrapper>
       <ProductImageWrapper>
         <ProductImage src={thumbnail} />
       </ProductImageWrapper>
       <div>
-        <h4 onClick={productDetails} role="link">
-          {title}
-        </h4>
+        <div
+          onClick={productDetails}
+          tabIndex={0}
+          onKeyPress={handleEnterKeyPress}
+          role="link"
+        >
+          <h4>{title}</h4>
+        </div>
         <p>{description}</p>
         <p>Cena: {price}$</p>
       </div>
